@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Truck, MapPin, Clock, Fuel, Download } from "lucide-react";
 import RouteOptimizer from "./RouteOptimizer";
 import ExportDialog from "./ExportDialog";
+import GoogleMapsIntegration from "./GoogleMapsIntegration";
 
 const TransporterDashboard = () => {
   const [showExport, setShowExport] = useState(false);
@@ -50,6 +51,10 @@ const TransporterDashboard = () => {
       case "completed": return "bg-gray-100 text-gray-800";
       default: return "bg-gray-100 text-gray-800";
     }
+  };
+
+  const handleViewRoute = (routeId: string) => {
+    console.log(`Viewing route ${routeId} on Google Maps`);
   };
 
   return (
@@ -145,7 +150,12 @@ const TransporterDashboard = () => {
                     </div>
                   </div>
                   <div className="flex space-x-2">
-                    <Button variant="outline" size="sm">View Route</Button>
+                    <GoogleMapsIntegration
+                      routeId={route.id}
+                      origin={route.origin}
+                      destination={route.destination}
+                      onViewRoute={() => handleViewRoute(route.id)}
+                    />
                     {route.status === "scheduled" && (
                       <Button size="sm" className="bg-green-600 hover:bg-green-700">
                         Start Journey
@@ -159,7 +169,6 @@ const TransporterDashboard = () => {
         </CardContent>
       </Card>
 
-      {/* Route Optimizer */}
       <RouteOptimizer />
 
       <ExportDialog 
