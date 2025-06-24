@@ -1,27 +1,29 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { ExternalLink, MapPin } from "lucide-react";
+import { ExternalLink, MapPin, Navigation } from "lucide-react";
 
 interface GoogleMapsIntegrationProps {
   routeId: string;
   origin: string;
   destination: string;
   onViewRoute: () => void;
+  variant?: 'view' | 'start';
 }
 
 const GoogleMapsIntegration: React.FC<GoogleMapsIntegrationProps> = ({
   routeId,
   origin,
   destination,
-  onViewRoute
+  onViewRoute,
+  variant = 'view'
 }) => {
-  const handleViewRoute = () => {
-    // Base coordinates from your Google Maps link
-    const baseCoords = "22.8786366,87.78617";
+  const handleOpenMaps = () => {
+    // Create Google Maps directions URL with actual origin and destination
+    const encodedOrigin = encodeURIComponent(origin + ", West Bengal, India");
+    const encodedDestination = encodeURIComponent(destination + ", West Bengal, India");
     
-    // Create Google Maps directions URL
-    const mapsUrl = `https://www.google.com/maps/dir/${baseCoords}/${baseCoords}/@${baseCoords},15z/data=!3m1!4b1!4m2!4m1!3e0`;
+    const mapsUrl = `https://www.google.com/maps/dir/${encodedOrigin}/${encodedDestination}`;
     
     // Open Google Maps in a new tab
     window.open(mapsUrl, '_blank');
@@ -30,11 +32,24 @@ const GoogleMapsIntegration: React.FC<GoogleMapsIntegrationProps> = ({
     onViewRoute();
   };
 
+  if (variant === 'start') {
+    return (
+      <Button 
+        size="sm" 
+        className="bg-green-600 hover:bg-green-700"
+        onClick={handleOpenMaps}
+      >
+        <Navigation className="w-4 h-4 mr-2" />
+        Start Journey
+      </Button>
+    );
+  }
+
   return (
     <Button 
       variant="outline" 
       size="sm" 
-      onClick={handleViewRoute}
+      onClick={handleOpenMaps}
       className="flex items-center space-x-2"
     >
       <MapPin className="w-4 h-4" />

@@ -57,6 +57,10 @@ const TransporterDashboard = () => {
     console.log(`Viewing route ${routeId} on Google Maps`);
   };
 
+  const handleStartJourney = (routeId: string) => {
+    console.log(`Starting journey for route ${routeId}`);
+  };
+
   return (
     <div className="space-y-6">
       {/* Overview Cards */}
@@ -155,11 +159,16 @@ const TransporterDashboard = () => {
                       origin={route.origin}
                       destination={route.destination}
                       onViewRoute={() => handleViewRoute(route.id)}
+                      variant="view"
                     />
                     {route.status === "scheduled" && (
-                      <Button size="sm" className="bg-green-600 hover:bg-green-700">
-                        Start Journey
-                      </Button>
+                      <GoogleMapsIntegration
+                        routeId={route.id}
+                        origin={route.origin}
+                        destination={route.destination}
+                        onViewRoute={() => handleStartJourney(route.id)}
+                        variant="start"
+                      />
                     )}
                   </div>
                 </div>
