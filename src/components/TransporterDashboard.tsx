@@ -14,33 +14,33 @@ const TransporterDashboard = () => {
   const routes = [
     {
       id: "RT001",
-      origin: "Farm A - Wheat",
-      destination: "Market Central",
+      origin: "Hooghly Rice Farm - Chinsurah",
+      destination: "Sealdah Wholesale Market - Kolkata",
       distance: "45 km",
       estimatedTime: "1h 20m",
       fuelCost: "$25",
       status: "active",
-      cargo: "2,500 kg Wheat"
+      cargo: "2,500 kg Rice"
     },
     {
       id: "RT002",
-      origin: "Farm B - Corn",
-      destination: "Processing Plant",
+      origin: "Burdwan Potato Farm - Memari",
+      destination: "Howrah Processing Plant",
       distance: "32 km",
       estimatedTime: "55m",
       fuelCost: "$18",
       status: "scheduled",
-      cargo: "1,800 kg Corn"
+      cargo: "1,800 kg Potatoes"
     },
     {
       id: "RT003",
-      origin: "Storage 1 - Rice",
-      destination: "Port Terminal",
+      origin: "Nadia Jute Farm - Krishnanagar",
+      destination: "Kolkata Port - Haldia Terminal",
       distance: "78 km",
       estimatedTime: "2h 15m",
       fuelCost: "$42",
       status: "completed",
-      cargo: "3,200 kg Rice"
+      cargo: "3,200 kg Jute"
     }
   ];
 
