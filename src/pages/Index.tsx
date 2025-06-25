@@ -6,12 +6,10 @@ import { Button } from "@/components/ui/button";
 import FarmerDashboard from "@/components/FarmerDashboard";
 import TransporterDashboard from "@/components/TransporterDashboard";
 import VendorDashboard from "@/components/VendorDashboard";
-import ChatBot from "@/components/ChatBot";
-import { Tractor, Truck, Store, MessageCircle } from "lucide-react";
+import { Tractor, Truck, Store } from "lucide-react";
 
 const Index = () => {
   const [activeRole, setActiveRole] = useState("farmer");
-  const [showChatBot, setShowChatBot] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50">
@@ -25,13 +23,6 @@ const Index = () => {
               </div>
               <h1 className="text-xl font-bold text-gray-900">AgriChain Pro</h1>
             </div>
-            <Button
-              onClick={() => setShowChatBot(!showChatBot)}
-              className="bg-green-600 hover:bg-green-700"
-            >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              AI Assistant
-            </Button>
           </div>
         </div>
       </header>
@@ -77,13 +68,6 @@ const Index = () => {
           </TabsContent>
         </Tabs>
       </div>
-
-      {/* AI ChatBot */}
-      {showChatBot && (
-        <div className="fixed bottom-4 right-4 z-50">
-          <ChatBot onClose={() => setShowChatBot(false)} />
-        </div>
-      )}
     </div>
   );
 };
