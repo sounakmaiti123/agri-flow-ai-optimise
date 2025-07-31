@@ -61,10 +61,9 @@ This project is built with:
 - Tailwind CSS
 
 ## How can I deploy this project?
+yes!
 
-Simply open [Lovable](https://lovable.dev/projects/ee6706d5-904a-4435-a26d-c3811f1b260b) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
+@Sounak_Maiti
 
 Yes, you can!
 
