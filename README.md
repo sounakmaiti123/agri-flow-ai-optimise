@@ -61,12 +61,9 @@ This project is built with:
 - Tailwind CSS
 
 ## How can I deploy this project?
-yes!
-
-@Sounak_Maiti
 
 Yes, you can!
 
 To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+@Sounak_Maiti
