@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, TrendingUp, Download } from "lucide-react";
+import { Calendar, MapPin, TrendingUp, Download, Brain, CloudRain, DollarSign, AlertTriangle } from "lucide-react";
 import CropInventory from "./CropInventory";
 import PriceChart from "./PriceChart";
 import ExportDialog from "./ExportDialog";
@@ -147,6 +147,198 @@ const FarmerDashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      {/* AI Crop Prediction Section */}
+      <Card>
+        <CardHeader>
+          <CardTitle className="flex items-center space-x-2">
+            <Brain className="w-5 h-5 text-purple-600" />
+            <span>AI Crop Recommendations</span>
+          </CardTitle>
+          <CardDescription>Smart suggestions based on weather, soil, and market data</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Recommended Crops */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-lg mb-4">Recommended for Next Season</h3>
+              
+              <div className="border rounded-lg p-4 bg-gradient-to-r from-green-50 to-emerald-50">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <h4 className="font-semibold text-green-800">Tomatoes</h4>
+                    <p className="text-sm text-green-600">High confidence match</p>
+                  </div>
+                  <Badge className="bg-green-100 text-green-800">96% Match</Badge>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <CloudRain className="w-4 h-4 text-blue-500" />
+                    <span>Optimal weather conditions expected</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <DollarSign className="w-4 h-4 text-green-500" />
+                    <span>High market demand (+23% price increase)</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <TrendingUp className="w-4 h-4 text-purple-500" />
+                    <span>Expected yield: 4,500 kg/hectare</span>
+                  </div>
+                </div>
+                <div className="mt-3">
+                  <div className="flex justify-between text-xs text-gray-600 mb-1">
+                    <span>Profit Potential</span>
+                    <span>$12,500/hectare</span>
+                  </div>
+                  <Progress value={92} className="h-2" />
+                </div>
+              </div>
+
+              <div className="border rounded-lg p-4 bg-gradient-to-r from-blue-50 to-cyan-50">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <h4 className="font-semibold text-blue-800">Sweet Peppers</h4>
+                    <p className="text-sm text-blue-600">Good alternative option</p>
+                  </div>
+                  <Badge className="bg-blue-100 text-blue-800">89% Match</Badge>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <CloudRain className="w-4 h-4 text-blue-500" />
+                    <span>Suitable for current soil pH (6.8)</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <DollarSign className="w-4 h-4 text-green-500" />
+                    <span>Stable market demand</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <TrendingUp className="w-4 h-4 text-purple-500" />
+                    <span>Expected yield: 3,800 kg/hectare</span>
+                  </div>
+                </div>
+                <div className="mt-3">
+                  <div className="flex justify-between text-xs text-gray-600 mb-1">
+                    <span>Profit Potential</span>
+                    <span>$9,200/hectare</span>
+                  </div>
+                  <Progress value={85} className="h-2" />
+                </div>
+              </div>
+
+              <div className="border rounded-lg p-4 bg-gradient-to-r from-yellow-50 to-amber-50">
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <h4 className="font-semibold text-amber-800">Lettuce</h4>
+                    <p className="text-sm text-amber-600">Quick harvest option</p>
+                  </div>
+                  <Badge className="bg-amber-100 text-amber-800">78% Match</Badge>
+                </div>
+                <div className="space-y-2 text-sm">
+                  <div className="flex items-center space-x-2">
+                    <Calendar className="w-4 h-4 text-green-500" />
+                    <span>Short growing cycle (45 days)</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <DollarSign className="w-4 h-4 text-green-500" />
+                    <span>Lower investment required</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <TrendingUp className="w-4 h-4 text-purple-500" />
+                    <span>Expected yield: 2,200 kg/hectare</span>
+                  </div>
+                </div>
+                <div className="mt-3">
+                  <div className="flex justify-between text-xs text-gray-600 mb-1">
+                    <span>Profit Potential</span>
+                    <span>$6,800/hectare</span>
+                  </div>
+                  <Progress value={78} className="h-2" />
+                </div>
+              </div>
+            </div>
+
+            {/* Risk Assessment & Insights */}
+            <div className="space-y-4">
+              <h3 className="font-semibold text-lg mb-4">Risk Assessment & Market Insights</h3>
+              
+              <Card className="bg-gradient-to-r from-red-50 to-pink-50">
+                <CardContent className="p-4">
+                  <div className="flex items-start space-x-3">
+                    <AlertTriangle className="w-5 h-5 text-red-500 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-red-800 mb-2">Weather Alerts</h4>
+                      <ul className="text-sm text-red-700 space-y-1">
+                        <li>• Possible drought conditions in July-August</li>
+                        <li>• Consider drought-resistant varieties</li>
+                        <li>• Install drip irrigation system recommended</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-r from-purple-50 to-indigo-50">
+                <CardContent className="p-4">
+                  <div className="flex items-start space-x-3">
+                    <TrendingUp className="w-5 h-5 text-purple-500 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-purple-800 mb-2">Market Trends</h4>
+                      <ul className="text-sm text-purple-700 space-y-1">
+                        <li>• Organic produce demand up 34%</li>
+                        <li>• Local farm-to-table restaurants expanding</li>
+                        <li>• Export opportunities to nearby cities</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-gradient-to-r from-green-50 to-teal-50">
+                <CardContent className="p-4">
+                  <div className="flex items-start space-x-3">
+                    <Brain className="w-5 h-5 text-green-500 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-green-800 mb-2">AI Insights</h4>
+                      <ul className="text-sm text-green-700 space-y-1">
+                        <li>• Your soil composition favors nightshade family</li>
+                        <li>• Field rotation recommended after corn harvest</li>
+                        <li>• Consider companion planting for pest control</li>
+                      </ul>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+                <h4 className="font-semibold text-blue-800 mb-2">Optimization Summary</h4>
+                <div className="grid grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <p className="text-blue-600">Potential Revenue Increase</p>
+                    <p className="font-bold text-blue-800">+28%</p>
+                  </div>
+                  <div>
+                    <p className="text-blue-600">Resource Efficiency</p>
+                    <p className="font-bold text-blue-800">+15%</p>
+                  </div>
+                  <div>
+                    <p className="text-blue-600">Risk Reduction</p>
+                    <p className="font-bold text-blue-800">-22%</p>
+                  </div>
+                  <div>
+                    <p className="text-blue-600">Sustainability Score</p>
+                    <p className="font-bold text-blue-800">8.4/10</p>
+                  </div>
+                </div>
+              </div>
+
+              <Button className="w-full" variant="default">
+                <Brain className="w-4 h-4 mr-2" />
+                Get Detailed Planting Plan
+              </Button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       <ExportDialog 
         open={showExport}
