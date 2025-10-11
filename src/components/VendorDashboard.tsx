@@ -3,12 +3,14 @@ import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { TrendingUp, TrendingDown, ShoppingCart, Calendar, Download } from "lucide-react";
+import { TrendingUp, TrendingDown, ShoppingCart, Calendar, Download, CreditCard } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import PriceChart from "./PriceChart";
 import ExportDialog from "./ExportDialog";
 
 const VendorDashboard = () => {
   const [showExport, setShowExport] = useState(false);
+  const navigate = useNavigate();
 
   const inventory = [
     {
@@ -181,6 +183,14 @@ const VendorDashboard = () => {
                   <p>{order.customer}</p>
                   <p>{order.quantity} kg of {order.product}</p>
                 </div>
+                <Button 
+                  size="sm" 
+                  className="w-full mt-3"
+                  onClick={() => navigate("/payment")}
+                >
+                  <CreditCard className="w-4 h-4 mr-2" />
+                  Pay Now
+                </Button>
               </div>
             ))}
           </CardContent>
