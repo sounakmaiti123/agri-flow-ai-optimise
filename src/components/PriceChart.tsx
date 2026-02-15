@@ -1,4 +1,3 @@
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from "recharts";
 import { TrendingUp } from "lucide-react";
@@ -14,10 +13,10 @@ const PriceChart = () => {
   ];
 
   return (
-    <Card>
+    <Card className="border-border/50">
       <CardHeader>
         <CardTitle className="flex items-center space-x-2">
-          <TrendingUp className="w-5 h-5" />
+          <TrendingUp className="w-5 h-5 text-primary" />
           <span>Price Trends</span>
         </CardTitle>
         <CardDescription>Historical market prices ($/kg)</CardDescription>
@@ -25,39 +24,15 @@ const PriceChart = () => {
       <CardContent>
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={priceData}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="month" />
-            <YAxis />
-            <Tooltip />
+            <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
+            <XAxis dataKey="month" stroke="hsl(var(--muted-foreground))" fontSize={12} />
+            <YAxis stroke="hsl(var(--muted-foreground))" fontSize={12} />
+            <Tooltip contentStyle={{ backgroundColor: 'hsl(var(--card))', border: '1px solid hsl(var(--border))', borderRadius: '0.75rem', color: 'hsl(var(--foreground))' }} />
             <Legend />
-            <Line 
-              type="monotone" 
-              dataKey="wheat" 
-              stroke="#8884d8" 
-              strokeWidth={2}
-              name="Wheat"
-            />
-            <Line 
-              type="monotone" 
-              dataKey="corn" 
-              stroke="#82ca9d" 
-              strokeWidth={2}
-              name="Corn"
-            />
-            <Line 
-              type="monotone" 
-              dataKey="rice" 
-              stroke="#ffc658" 
-              strokeWidth={2}
-              name="Rice"
-            />
-            <Line 
-              type="monotone" 
-              dataKey="soybeans" 
-              stroke="#ff7300" 
-              strokeWidth={2}
-              name="Soybeans"
-            />
+            <Line type="monotone" dataKey="wheat" stroke="hsl(var(--chart-1))" strokeWidth={2} name="Wheat" dot={{ r: 3 }} />
+            <Line type="monotone" dataKey="corn" stroke="hsl(var(--chart-2))" strokeWidth={2} name="Corn" dot={{ r: 3 }} />
+            <Line type="monotone" dataKey="rice" stroke="hsl(var(--chart-3))" strokeWidth={2} name="Rice" dot={{ r: 3 }} />
+            <Line type="monotone" dataKey="soybeans" stroke="hsl(var(--chart-4))" strokeWidth={2} name="Soybeans" dot={{ r: 3 }} />
           </LineChart>
         </ResponsiveContainer>
       </CardContent>
