@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, TrendingUp, Download, Brain, CloudRain, DollarSign, AlertTriangle, Wheat, Sprout, Package, BarChart3 } from "lucide-react";
 import PriceChart from "./PriceChart";
 import ExportDialog from "./ExportDialog";
+import MLPredictions from "./MLPredictions";
 
 const FarmerDashboard = () => {
   const [showExport, setShowExport] = useState(false);
@@ -205,6 +206,10 @@ const FarmerDashboard = () => {
           </div>
         </CardContent>
       </Card>
+
+
+      {/* ML Predictions */}
+      <MLPredictions />
 
       <ExportDialog open={showExport} onClose={() => setShowExport(false)} data={crops} title="Crop Inventory Report" />
     </div>
